@@ -5,20 +5,7 @@
     <projectFile>Intermediate/ProjectFiles/UE5.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GGJCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GGJCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Animations/ABP_Manny.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Animations/ABP_Manny.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Meshes/SKM_Quinn_Simple.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Meshes/SKM_Quinn_Simple.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Meshes/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Meshes/SK_Mannequin.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/WillTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/WillTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GGJ.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/GGJ.uproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJ.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJ.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" afterDir="false" />
-    </list>
+    <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,9 +28,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\trand\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\trand\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\trand\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\GGPC\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\GGPC\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\GGPC\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -172,6 +159,7 @@
       <workItem from="1675410907457" duration="300000" />
       <workItem from="1675411505804" duration="103000" />
       <workItem from="1675419544620" duration="4655000" />
+      <workItem from="1675426097227" duration="1420000" />
     </task>
     <servers />
   </component>
