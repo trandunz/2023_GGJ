@@ -4,6 +4,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "GGJGameMode.generated.h"
 
+class AGGJCharacter;
 UCLASS(minimalapi)
 class AGGJGameMode : public AGameModeBase
 {
@@ -11,6 +12,12 @@ class AGGJGameMode : public AGameModeBase
 
 public:
 	AGGJGameMode();
+
+	FTransform FindRandomPlayerStart();
+	void SpawnPlayer(APlayerController* _playerController);
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Prefabs, meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<AGGJCharacter> CharacterPrefab;
 };
 
 

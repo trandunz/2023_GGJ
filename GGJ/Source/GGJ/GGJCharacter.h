@@ -5,6 +5,7 @@
 #include "InputActionValue.h"
 #include "GGJCharacter.generated.h"
 
+class AGrowPatch;
 UCLASS(config=Game)
 class AGGJCharacter : public ACharacter
 {
@@ -19,8 +20,12 @@ private:
 	class UInputAction* MoveAction;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* LookAction;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* HarvestAction;
 
 protected:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Prefabs, meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<AGrowPatch> GrowPatchPrefab;
 	
 public:
 	AGGJCharacter();
@@ -34,6 +39,15 @@ protected:
 
 	virtual void BeginPlay();
 
+	virtual void TryHarvest();
+	
+private:
+	void SpawnPlayerPatch();
 public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class AGrowSpot* LastGrowSpot;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class AGrowPatch* PlayerPatch;
 };
 

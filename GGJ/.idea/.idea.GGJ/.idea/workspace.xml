@@ -7,8 +7,21 @@
   <component name="ChangeListManager">
     <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GGJCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GGJCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GGJGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GGJGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GrowPatch.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GrowPatch.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GrowSpot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GrowSpot.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Animations/Manny/BS_MM_WalkRun.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Animations/Manny/BS_MM_WalkRun.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/IMC_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IMC_Default.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/WillTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/WillTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowPatch.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowPatch.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowPatch.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowPatch.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowSpot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowSpot.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowSpot.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowSpot.h" afterDir="false" />
     </list>
@@ -31,6 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -167,6 +181,7 @@
       <workItem from="1675411505804" duration="103000" />
       <workItem from="1675419544620" duration="4655000" />
       <workItem from="1675425927008" duration="4392000" />
+      <workItem from="1675450577948" duration="7649000" />
     </task>
     <servers />
   </component>
