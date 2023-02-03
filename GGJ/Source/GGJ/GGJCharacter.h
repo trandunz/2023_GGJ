@@ -49,5 +49,8 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class AGrowPatch* PlayerPatch;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int32 PlayerIndex{};
 };
 

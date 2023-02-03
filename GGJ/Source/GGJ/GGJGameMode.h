@@ -13,11 +13,14 @@ class AGGJGameMode : public AGameModeBase
 public:
 	AGGJGameMode();
 
-	FTransform FindRandomPlayerStart();
-	void SpawnPlayer(APlayerController* _playerController);
+	virtual void BeginPlay() override;
 
+	void SpawnPlayer2();
+
+	FTransform FindRandomPlayerStart();
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Prefabs, meta = (AllowPrivateAccess = "true"))
-	TSubclassOf<AGGJCharacter> CharacterPrefab;
+	TSubclassOf<AGGJCharacter> Player2Prefab;
 };
 
 

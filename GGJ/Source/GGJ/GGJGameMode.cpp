@@ -14,23 +14,27 @@ AGGJGameMode::AGGJGameMode()
 	}
 }
 
+void AGGJGameMode::BeginPlay()
+{
+	Super::BeginPlay();
+
+	SpawnPlayer2();
+}
+
+void AGGJGameMode::SpawnPlayer2()
+{
+	if (Player2Prefab)
+	{
+		FString outError;
+		DefaultPawnClass = Player2Prefab;
+		GetGameInstance()->CreateLocalPlayer(-1, outError, true);
+	}
+}
+
 FTransform AGGJGameMode::FindRandomPlayerStart()
 {
 	TArray<AActor*> spawnPoints{};
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), APlayerStart::StaticClass(), spawnPoints);
 	int randomSpawn = rand() % spawnPoints.Num();
 	return spawnPoints[randomSpawn]->GetActorTransform();
-}
-
-void AGGJGameMode::SpawnPlayer(APlayerController* _playerController)
-{
-	//if (APawn* pawn = _playerController->GetPawn())
-	//{
-	//	pawn->Destroy();
-	//}
-//
-	//if (AGGJCharacter* playerCharacter = GetWorld()->SpawnActor<AGGJCharacter>(CharacterPrefab, FindRandomPlayerStart()))
-	//{
-	//	_playerController->Possess(playerCharacter);
-	//}
 }

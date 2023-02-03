@@ -11,8 +11,8 @@ class GGJ_API AGGJPlayerController : public APlayerController
 
 	virtual void BeginPlay() override;
 
-	UFUNCTION(Reliable, Server, WithValidation)
-	void Server_SpawnPlayer();
-	void Server_SpawnPlayer_Implementation();
-	bool Server_SpawnPlayer_Validate();
+	//UFUNCTION(Reliable, Server, WithValidation)
+	//void Server_SpawnPlayer();
+	//void Server_SpawnPlayer_Implementation();
+	//bool Server_SpawnPlayer_Validate();
 };
