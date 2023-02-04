@@ -37,15 +37,13 @@ void AGGJCharacter::BeginPlay()
 	{
 		controller->bShowMouseCursor = true;
 		controller->SetInputMode(FInputModeGameAndUI{});
-	}
-	
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
-	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(controller->GetLocalPlayer()))
 		{
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
+
 
 	SpawnPlayerPatch();
 }
@@ -73,8 +71,7 @@ void AGGJCharacter::SpawnPlayerPatch()
 {
 	if (PlayerPatch == nullptr)
 	{
-		PlayerPatch = GetWorld()->SpawnActor<AGrowPatch>(GrowPatchPrefab, {GetActorLocation().X, GetActorLocation().Y, 0}, FRotator(FQuat::Identity));
-		
+		PlayerPatch = GetWorld()->SpawnActor<AGrowPatch>(GrowPatchPrefab, {GetActorLocation().X, GetActorLocation().Y, 0}, FRotator(FQuat::Identity));		
 	}
 }
 
