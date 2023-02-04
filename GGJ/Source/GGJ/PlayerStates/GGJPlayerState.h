@@ -8,5 +8,6 @@ UCLASS()
 class GGJ_API AGGJPlayerState : public APlayerState
 {
 	GENERATED_BODY()
-	
+
+public:
 };
