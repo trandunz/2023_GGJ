@@ -1,4 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -7,9 +6,7 @@
 #include "Widget_Mainmenu.generated.h"
 
 
-/**
- * 
- */
+
 UCLASS()
 class GGJ_API UWidget_Mainmenu : public UUserWidget
 {
