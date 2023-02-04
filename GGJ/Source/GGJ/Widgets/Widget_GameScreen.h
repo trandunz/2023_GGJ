@@ -3,7 +3,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "AdvancedWidgets/Public/Components/RadialSlider.h"
+// #include "AdvancedWidgets/Public/Components/RadialSlider.h"
 #include "Widget_GameScreen.generated.h"
 
 
@@ -12,8 +12,8 @@ class GGJ_API UWidget_GameScreen : public UUserWidget
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Timer, meta = (BindWidget))
-	URadialSlider* Timer_RadialSlider;
+	// UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Timer, meta = (BindWidget))
+	// URadialSlider* Timer_RadialSlider;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Timer, meta = (BindWidget))
 	FText Timer_Text;

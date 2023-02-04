@@ -5,17 +5,7 @@
     <projectFile>Intermediate/ProjectFiles/UE5.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Meshes/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Meshes/SK_Mannequin.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/WillTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/WillTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowPatch.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowPatch.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowPatch.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowPatch.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowSpot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowSpot.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,9 +30,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "D:\\Users\\event\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "D:\\Users\\event\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "D:\\Users\\event\\AppData\\Local\\Symbols\\src"
+      "D:\\Users\\MDS00002H0\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "D:\\Users\\MDS00002H0\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "D:\\Users\\MDS00002H0\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -175,6 +165,7 @@
       <workItem from="1675450577948" duration="7649000" />
       <workItem from="1675461443185" duration="915000" />
       <workItem from="1675472487333" duration="1930000" />
+      <workItem from="1675475874744" duration="84000" />
     </task>
     <servers />
   </component>
