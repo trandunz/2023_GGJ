@@ -1,6 +1,8 @@
 #include "GrowSpot.h"
 
 #include "Carrot.h"
+#include "GGJCharacter.h"
+#include "Components/BoxComponent.h"
 #include "Components/GrowComponent.h"
 
 AGrowSpot::AGrowSpot()
@@ -12,12 +14,32 @@ AGrowSpot::AGrowSpot()
 	Mesh->SetCollisionProfileName(FName("Trigger"));
 
 	GrowComponent = CreateDefaultSubobject<UGrowComponent>(TEXT("Grow Component"));
+
+	Trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("Trigger"));
+	Trigger->SetupAttachment(Mesh);
+	Trigger->SetBoxExtent({50,50,50});
+	Trigger->SetCollisionProfileName(FName("Trigger"));
+	Trigger->SetGenerateOverlapEvents(true);
+
+
+}
+
+AActor* AGrowSpot::Harvest()
+{
+	return ActiveVegetable;
 }
 
 void AGrowSpot::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	if (Trigger)
+	{
+		Trigger->OnComponentBeginOverlap.RemoveDynamic(
+			   this, &AGrowSpot::OnBeginOverlap);
+
+		Trigger->OnComponentBeginOverlap.AddDynamic(
+			   this, &AGrowSpot::OnBeginOverlap);
+	}
 }
 
 void AGrowSpot::DebugSpriteColorChange()
@@ -33,7 +55,7 @@ void AGrowSpot::Tick(float DeltaTime)
 	{
 		if (UStaticMeshComponent* mesh = Cast<UStaticMeshComponent>(ActiveVegetable->GetComponentByClass(UStaticMeshComponent::StaticClass())))
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Found Static Mesh On Grow Spot") );
+			
 			auto currentMat = mesh->CreateDynamicMaterialInstance(0);
 
 			switch(GrowComponent->GrowState)
@@ -76,6 +98,19 @@ void AGrowSpot::Tick(float DeltaTime)
 	else if (CarrotPrefab && !ActiveVegetable)
 	{
 		ActiveVegetable = GetWorld()->SpawnActor<ACarrot>(CarrotPrefab, GetActorLocation(), FRotator(FQuat::Identity));
+	}
+}
+
+void AGrowSpot::OnBeginOverlap(UPrimitiveComponent* Comp, AActor* OtherActor, UPrimitiveComponent* OtherComp,
+	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (OtherActor && 
+	 (OtherActor != this))
+	{
+		if (AGGJCharacter* character = Cast<AGGJCharacter>(OtherActor))
+		{
+			character->LastGrowSpot = this;
+		}
 	}
 }
 

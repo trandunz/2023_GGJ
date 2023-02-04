@@ -14,7 +14,10 @@ public:
 	AGrowPatch();
 
 	UFUNCTION()
-	FVector GetClosestGridPosition(FVector& _inVec);
+	FVector GetClosestGridPosition(FVector _inVec);
+
+	UFUNCTION()
+	void HarvestClosestGridPosition(FVector _inVec);
 
 	UFUNCTION()
 	bool IsGridPositionValid(FVector _inVec);

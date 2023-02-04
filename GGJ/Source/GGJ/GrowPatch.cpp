@@ -7,7 +7,7 @@ AGrowPatch::AGrowPatch()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-FVector AGrowPatch::GetClosestGridPosition(FVector& _inVec)
+FVector AGrowPatch::GetClosestGridPosition(FVector _inVec)
 {
 	if (GridArray.Num() > 0)
 	{
@@ -27,6 +27,29 @@ FVector AGrowPatch::GetClosestGridPosition(FVector& _inVec)
 	return {};
 }
 
+void AGrowPatch::HarvestClosestGridPosition(FVector _inVec)
+{
+	if (GridArray.Num() > 0)
+	{
+		AGrowSpot* closestSpot = GridArray[0];
+		float closestDist = FVector::Distance(_inVec, GridArray[0]->GetActorLocation());
+
+		for(auto& cell : GridArray)
+		{
+			if (FVector::Distance(_inVec, cell->GetActorLocation()) < closestDist)
+			{
+				closestDist = FVector::Distance(_inVec, cell->GetActorLocation());
+				closestSpot = cell;
+			}
+		}
+
+		if (closestSpot->Harvest())
+		{
+			closestSpot->Harvest()->Destroy();
+		}
+	}
+}
+
 bool AGrowPatch::IsGridPositionValid(FVector _inVec)
 {
 	return {};
@@ -43,17 +66,24 @@ void AGrowPatch::PopulateGrid()
 		{
 			for(int y = 0; y < GridSize; y++)
 			{
-				auto a = y * WorldGridSize;
-				auto b = i * WorldGridSize;
+				if (y <= (GridSize / 2) - 1 ||  y >= (GridSize / 2) + 1 )
+				{
+					if (i <= (GridSize / 2) - 1 ||  i >= (GridSize / 2) + 1 )
+					{
+						auto a = y * WorldGridSize;
+						auto b = i * WorldGridSize;
 
-				auto da = a - worldOffset;
-				auto db = b - worldOffset;
+						auto da = a - worldOffset;
+						auto db = b - worldOffset;
 
-				FVector vec {da, db, GetActorLocation().Z};
-				vec += GetActorLocation();
+						FVector vec {da, db, GetActorLocation().Z};
+						vec += GetActorLocation();
 
-				FActorSpawnParameters params{};
-				GridArray.Add(GetWorld()->SpawnActor<AGrowSpot>(GridCellPrefab, vec, FRotator(FQuat::Identity)));
+						FActorSpawnParameters params{};
+						GridArray.Add(GetWorld()->SpawnActor<AGrowSpot>(GridCellPrefab, vec, FRotator(FQuat::Identity)));
+					}
+				}
+				
 			}
 		}
 	}

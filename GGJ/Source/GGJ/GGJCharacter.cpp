@@ -7,6 +7,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "GGJ/GrowSpot.h"
+#include "GGJ/GrowPatch.h"
 
 AGGJCharacter::AGGJCharacter()
 {
@@ -21,7 +23,7 @@ AGGJCharacter::AGGJCharacter()
 
 	GetCharacterMovement()->JumpZVelocity = 300.f;
 	GetCharacterMovement()->AirControl = 0.35f;
-	GetCharacterMovement()->MaxWalkSpeed = 400.f;
+	GetCharacterMovement()->MaxWalkSpeed = 300.f;
 	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 4000.f;
 }
@@ -43,6 +45,25 @@ void AGGJCharacter::BeginPlay()
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
+
+	SpawnPlayerPatch();
+}
+
+void AGGJCharacter::TryHarvest()
+{
+	if (PlayerPatch)
+	{
+		PlayerPatch->HarvestClosestGridPosition(GetActorLocation());
+	}
+}
+
+void AGGJCharacter::SpawnPlayerPatch()
+{
+	if (PlayerPatch == nullptr)
+	{
+		PlayerPatch = GetWorld()->SpawnActor<AGrowPatch>(GrowPatchPrefab, {GetActorLocation().X, GetActorLocation().Y, 0}, FRotator(FQuat::Identity));
+		
+	}
 }
 
 void AGGJCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -53,6 +74,7 @@ void AGGJCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInput
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AGGJCharacter::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AGGJCharacter::Look);
+		EnhancedInputComponent->BindAction(HarvestAction, ETriggerEvent::Triggered, this, &AGGJCharacter::TryHarvest);
 	}
 }
 
