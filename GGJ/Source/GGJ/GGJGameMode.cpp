@@ -12,6 +12,7 @@ AGGJGameMode::AGGJGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+	
 }
 
 void AGGJGameMode::BeginPlay()
@@ -19,6 +20,23 @@ void AGGJGameMode::BeginPlay()
 	Super::BeginPlay();
 
 	SpawnPlayer2();
+
+	RoundTimer = RoundTime;
+}
+
+void AGGJGameMode::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	if (RoundTimer > 0)
+	{
+		RoundTimer -= DeltaSeconds;
+	}
+	else if (!GameOver)
+	{
+		GameOver = true;
+		// Show Win Screen
+	}
 }
 
 void AGGJGameMode::SpawnPlayer2()
@@ -27,7 +45,7 @@ void AGGJGameMode::SpawnPlayer2()
 	{
 		FString outError;
 		DefaultPawnClass = Player2Prefab;
-		GetGameInstance()->CreateLocalPlayer(-1, outError, true);
+		GetGameInstance()->CreateLocalPlayer(1, outError, true);
 	}
 }
 

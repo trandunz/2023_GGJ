@@ -19,8 +19,10 @@ protected:
 public:	
 	virtual void Tick(float DeltaTime) override;
 
+	void SetSimulatePhysics(bool _simulatePhysics);
+
+	virtual void Throw(FVector _direction) override;
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Mesh, meta = (AllowPrivateAccess))
 	class UStaticMeshComponent* Mesh;
-
 };
