@@ -7,8 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/WillTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/WillTest.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +184,8 @@
       <workItem from="1675474964573" duration="235000" />
       <workItem from="1675475213609" duration="102000" />
       <workItem from="1675479697846" duration="727000" />
+      <workItem from="1675484669993" duration="113000" />
+      <workItem from="1675485015729" duration="341000" />
     </task>
     <servers />
   </component>
