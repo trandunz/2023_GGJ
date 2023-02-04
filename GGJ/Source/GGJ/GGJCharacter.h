@@ -4,6 +4,7 @@
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
 #include "InputMappingContext.h"
+#include "GGJ/Widgets/Widget_GameScreen.h"
 #include "GGJCharacter.generated.h"
 
 class AGrowPatch;
@@ -28,6 +29,9 @@ private:
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Prefabs, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<AGrowPatch> GrowPatchPrefab;
+
+	UPROPERTY(EditAnywhere, BlueprintreadOnly, Category = PlayerUI, meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<UWidget_GameScreen> GameScreenPrefab;
 	
 public:
 	AGGJCharacter();
