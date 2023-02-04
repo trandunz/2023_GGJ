@@ -5,7 +5,16 @@
     <projectFile>Intermediate/ProjectFiles/UE5.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="" />
+    <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Carrot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Carrot.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Environment/SM_Carrot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Environment/SM_Carrot.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/WillTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/WillTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/M_MasterBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/M_MasterBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/M_MasterTextureAlpha.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/M_MasterTextureAlpha.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/M_MasterWindControl.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/M_MasterWindControl.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/Carrot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/Carrot.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
