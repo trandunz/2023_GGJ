@@ -1,6 +1,7 @@
 #include "GrowSpot.h"
 
 #include "Carrot.h"
+#include "Mandrake.h"
 #include "GGJCharacter.h"
 #include "Components/BoxComponent.h"
 #include "Components/GrowComponent.h"
@@ -99,7 +100,15 @@ void AGrowSpot::Tick(float DeltaTime)
 	}
 	else if (CarrotPrefab && !ActiveVegetable)
 	{
-		ActiveVegetable = GetWorld()->SpawnActor<ACarrot>(CarrotPrefab, GetActorLocation(), FRotator(FQuat::Identity));
+		int randomSelection = rand() % 2;
+		if (randomSelection == 0)
+		{
+			ActiveVegetable = GetWorld()->SpawnActor<ACarrot>(CarrotPrefab, GetActorLocation(), FRotator(FQuat::Identity));
+		}
+		else if (randomSelection == 1)
+		{
+			ActiveVegetable = GetWorld()->SpawnActor<AMandrake>(MangrovePrefab, GetActorLocation(), FRotator(FQuat::Identity));
+		}
 	}
 }
 

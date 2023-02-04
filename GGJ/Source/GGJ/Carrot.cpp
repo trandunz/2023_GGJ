@@ -34,3 +34,7 @@ void ACarrot::Throw(FVector _direction)
 	Mesh->AddImpulse(_direction * 25000);
 }
 
+void ACarrot::Harvest()
+{
+}
+
