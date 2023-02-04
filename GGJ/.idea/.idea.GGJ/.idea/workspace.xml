@@ -6,18 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Rabi_Idle_Run_BS.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/SM_rabi_Skeleton_AnimBlueprint.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GrowSpot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GrowSpot.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Environment/SM_Carrot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Environment/SM_Carrot.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Environment/SM_Mandrake.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Environment/SM_Mandrake.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GGJCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GGJCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Player1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Player1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Player2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Player2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/SM_rabi_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/SM_rabi_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Meshes/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Imported/Characters/Mannequins/Meshes/SK_Mannequin.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/WillTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/WillTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/Carrot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/Carrot.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/Carrot.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/Carrot.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowSpot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowSpot.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowSpot.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowSpot.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/Interfaces/VegetableInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/Interfaces/VegetableInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/VegetableBin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/VegetableBin.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +23,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../../../../Epic Games/UE_5.1/Engine/Source/Runtime/AdvancedWidgets/Public/Components/RadialSlider.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/GGJ/Controllers/GGJPlayerController.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/GGJ/Controllers/GGJPlayerController.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/GGJ/Controllers/GGJPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/GGJ/Controllers/GGJPlayerController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/GGJ/Widgets/Widget_GameScreen.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -55,9 +52,9 @@
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;D:\\Users\\event\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;D:\\Users\\event\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;D:\\Users\\event\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\trand\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\trand\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\trand\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
@@ -195,6 +192,7 @@
       <workItem from="1675479697846" duration="727000" />
       <workItem from="1675484669993" duration="113000" />
       <workItem from="1675485015729" duration="3144000" />
+      <workItem from="1675497314663" duration="798000" />
     </task>
     <servers />
   </component>
