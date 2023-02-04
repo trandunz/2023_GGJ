@@ -4,6 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "GrowSpot.generated.h"
 
+class AMandrake;
 class ACarrot;
 UCLASS()
 class GGJ_API AGrowSpot : public AActor
@@ -44,4 +45,7 @@ protected:
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess))
 	TSubclassOf<ACarrot> CarrotPrefab;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess))
+	TSubclassOf<AMandrake> MangrovePrefab;
 };
