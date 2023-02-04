@@ -7,6 +7,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Components/GrowComponent.h"
 #include "GGJ/GrowSpot.h"
 #include "GGJ/GrowPatch.h"
 
@@ -36,24 +37,33 @@ void AGGJCharacter::BeginPlay()
 	{
 		controller->bShowMouseCursor = true;
 		controller->SetInputMode(FInputModeGameAndUI{});
-	}
-	
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
-	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(controller->GetLocalPlayer()))
 		{
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
 
+
 	SpawnPlayerPatch();
+}
+
+void AGGJCharacter::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
 }
 
 void AGGJCharacter::TryHarvest()
 {
-	if (PlayerPatch)
+	if (PlayerPatch && !CurrentVegetable)
 	{
-		PlayerPatch->HarvestClosestGridPosition(GetActorLocation());
+		CurrentVegetable = PlayerPatch->HarvestClosestGridPosition(GetActorLocation());
+		if (UGrowComponent* growComponent = Cast<UGrowComponent>(CurrentVegetable->GetComponentByClass(UGrowComponent::StaticClass())))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
+			growComponent->IsGrowing = false;
+		}
+		CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("VegetableTarget"));
 	}
 }
 
@@ -61,8 +71,7 @@ void AGGJCharacter::SpawnPlayerPatch()
 {
 	if (PlayerPatch == nullptr)
 	{
-		PlayerPatch = GetWorld()->SpawnActor<AGrowPatch>(GrowPatchPrefab, {GetActorLocation().X, GetActorLocation().Y, 0}, FRotator(FQuat::Identity));
-		
+		PlayerPatch = GetWorld()->SpawnActor<AGrowPatch>(GrowPatchPrefab, {GetActorLocation().X, GetActorLocation().Y, 0}, FRotator(FQuat::Identity));		
 	}
 }
 

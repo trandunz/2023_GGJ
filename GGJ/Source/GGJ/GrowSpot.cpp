@@ -26,7 +26,9 @@ AGrowSpot::AGrowSpot()
 
 AActor* AGrowSpot::Harvest()
 {
-	return ActiveVegetable;
+	AActor* activeVeg = ActiveVegetable;
+	ActiveVegetable = nullptr;
+	return activeVeg;
 }
 
 void AGrowSpot::BeginPlay()

@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "InputMappingContext.h"
 #include "GGJCharacter.generated.h"
 
 class AGrowPatch;
@@ -14,6 +15,7 @@ class AGGJCharacter : public ACharacter
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputMappingContext* DefaultMappingContext;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* JumpAction;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
@@ -38,6 +40,7 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual void BeginPlay();
+	virtual void Tick(float DeltaSeconds) override;
 
 	virtual void TryHarvest();
 	
@@ -52,5 +55,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 PlayerIndex{};
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class AActor* CurrentVegetable;
 };
 
