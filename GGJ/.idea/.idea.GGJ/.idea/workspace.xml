@@ -5,18 +5,13 @@
     <projectFile>Intermediate/ProjectFiles/UE5.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/WillTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/WillTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../../../../Epic Games/UE_5.1/Engine/Source/Runtime/AdvancedWidgets/Public/Components/RadialSlider.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/GGJ/Controllers/GGJPlayerController.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/GGJ/Controllers/GGJPlayerController.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -186,12 +181,14 @@
       <workItem from="1675479697846" duration="727000" />
       <workItem from="1675484669993" duration="113000" />
       <workItem from="1675485015729" duration="341000" />
+      <workItem from="1675487628182" duration="2000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
