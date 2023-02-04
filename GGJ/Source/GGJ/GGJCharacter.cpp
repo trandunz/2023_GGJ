@@ -10,6 +10,9 @@
 #include "Components/GrowComponent.h"
 #include "GGJ/GrowSpot.h"
 #include "GGJ/GrowPatch.h"
+#include "GGJ/Interfaces/VegetableInterface.h"
+
+class IVegetableInterface;
 
 AGGJCharacter::AGGJCharacter()
 {
@@ -58,12 +61,25 @@ void AGGJCharacter::TryHarvest()
 	if (PlayerPatch && !CurrentVegetable)
 	{
 		CurrentVegetable = PlayerPatch->HarvestClosestGridPosition(GetActorLocation());
-		if (UGrowComponent* growComponent = Cast<UGrowComponent>(CurrentVegetable->GetComponentByClass(UGrowComponent::StaticClass())))
+		if (CurrentVegetable)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
-			growComponent->IsGrowing = false;
+			if (UGrowComponent* growComponent = Cast<UGrowComponent>(CurrentVegetable->GetComponentByClass(UGrowComponent::StaticClass())))
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
+				growComponent->IsGrowing = false;
+			}
+			CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("VegetableTarget"));
 		}
-		CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("VegetableTarget"));
+	}
+	else if (CurrentVegetable)
+	{
+		CurrentVegetable->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		CurrentVegetable->SetActorLocation(GetActorLocation() + GetActorForwardVector());
+		if (IVegetableInterface* vegetableInterface = Cast<IVegetableInterface>(CurrentVegetable))
+		{
+			vegetableInterface->Throw(GetActorForwardVector());
+		}
+		CurrentVegetable = nullptr;
 	}
 }
 
