@@ -7,8 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/IMC_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IMC_Default.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/Widgets/Widget_PauseMenu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/Widgets/Widget_PauseMenu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/Widgets/Widget_PauseMenu.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/Widgets/Widget_PauseMenu.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +185,7 @@
       <workItem from="1675474964573" duration="235000" />
       <workItem from="1675475213609" duration="102000" />
       <workItem from="1675479697846" duration="727000" />
+      <workItem from="1675480921736" duration="1524000" />
     </task>
     <servers />
   </component>
