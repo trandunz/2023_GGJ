@@ -39,11 +39,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int DeadTime{5};
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int SeedTime{2};
+	int SeedTime{5};
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int JuvenileTime{1};
+	int JuvenileTime{5};
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int MaatureTime{2};
+	int MatureTime{5};
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int HarvestableTime{3};
+	int HarvestableTime{5};
+
+protected:
+	FVector StartPos{};
 };
