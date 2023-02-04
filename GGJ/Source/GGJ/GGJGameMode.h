@@ -21,6 +21,11 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Prefabs, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<AGGJCharacter> Player2Prefab;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	int P1CurrentCarrotCount{};
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	int P2CurrentCarrotCount{};
 };
 
 
