@@ -38,6 +38,7 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual void BeginPlay();
+	virtual void Tick(float DeltaSeconds) override;
 
 	virtual void TryHarvest();
 	
@@ -52,5 +53,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 PlayerIndex{};
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class AActor* CurrentVegetable;
 };
 
