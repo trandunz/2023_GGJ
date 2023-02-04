@@ -10,10 +10,8 @@
 #include "Components/GrowComponent.h"
 #include "GGJ/GrowSpot.h"
 #include "GGJ/GrowPatch.h"
-#include "GGJ/Interfaces/VegetableInterface.h"
-
-class IVegetableInterface;
-
+#include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 AGGJCharacter::AGGJCharacter()
 {
@@ -37,8 +35,10 @@ void AGGJCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if (APlayerController* controller = Cast<APlayerController>(GetController()))
+	
+	if (APlayerController* controller = UGameplayStatics::GetPlayerController(GetWorld(), this->PlayerIndex))//Cast<APlayerController>(Controller))
 	{
+
 		controller->bShowMouseCursor = true;
 		controller->SetInputMode(FInputModeGameAndUI{});
 		
@@ -47,9 +47,11 @@ void AGGJCharacter::BeginPlay()
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
+	else
+	{
+		UKismetSystemLibrary::PrintString(GetWorld(), "No Player Controller");
+	}
 
-	InitaliseWidgets();
-	
 	SpawnPlayerPatch();
 }
 
@@ -63,25 +65,12 @@ void AGGJCharacter::TryHarvest()
 	if (PlayerPatch && !CurrentVegetable)
 	{
 		CurrentVegetable = PlayerPatch->HarvestClosestGridPosition(GetActorLocation());
-		if (CurrentVegetable)
+		if (UGrowComponent* growComponent = Cast<UGrowComponent>(CurrentVegetable->GetComponentByClass(UGrowComponent::StaticClass())))
 		{
-			if (UGrowComponent* growComponent = Cast<UGrowComponent>(CurrentVegetable->GetComponentByClass(UGrowComponent::StaticClass())))
-			{
-				UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
-				growComponent->IsGrowing = false;
-			}
-			CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("VegetableTarget"));
+			UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
+			growComponent->IsGrowing = false;
 		}
-	}
-	else if (CurrentVegetable)
-	{
-		CurrentVegetable->DetachFromActor(FDetachmentTransformRules::KeepRelativeTransform);
-		CurrentVegetable->SetActorLocation(GetActorLocation() + GetActorForwardVector());
-		if (IVegetableInterface* vegetableInterface = Cast<IVegetableInterface>(CurrentVegetable))
-		{
-			vegetableInterface->Throw(GetActorForwardVector());
-		}
-		CurrentVegetable = nullptr;
+		CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("VegetableTarget"));
 	}
 }
 
@@ -90,16 +79,6 @@ void AGGJCharacter::SpawnPlayerPatch()
 	if (PlayerPatch == nullptr)
 	{
 		PlayerPatch = GetWorld()->SpawnActor<AGrowPatch>(GrowPatchPrefab, {GetActorLocation().X, GetActorLocation().Y, 0}, FRotator(FQuat::Identity));		
-	}
-}
-
-void AGGJCharacter::InitaliseWidgets()
-{
-	if(GameScreenWidget == nullptr && GameScreenPrefab)
-	{
-		
-		GameScreenWidget = CreateWidget<UWidget_GameScreen>(GetWorld(), GameScreenPrefab);
-		GameScreenWidget->AddToViewport();
 	}
 }
 
