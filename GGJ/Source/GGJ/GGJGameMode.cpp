@@ -27,7 +27,7 @@ void AGGJGameMode::SpawnPlayer2()
 	{
 		FString outError;
 		DefaultPawnClass = Player2Prefab;
-		GetGameInstance()->CreateLocalPlayer(-1, outError, true);
+		GetGameInstance()->CreateLocalPlayer(1, outError, true);
 	}
 }
 

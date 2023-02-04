@@ -10,6 +10,8 @@
 #include "Components/GrowComponent.h"
 #include "GGJ/GrowSpot.h"
 #include "GGJ/GrowPatch.h"
+#include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 AGGJCharacter::AGGJCharacter()
 {
@@ -33,8 +35,10 @@ void AGGJCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if (APlayerController* controller = Cast<APlayerController>(GetController()))
+	
+	if (APlayerController* controller = UGameplayStatics::GetPlayerController(GetWorld(), this->PlayerIndex))//Cast<APlayerController>(Controller))
 	{
+
 		controller->bShowMouseCursor = true;
 		controller->SetInputMode(FInputModeGameAndUI{});
 		
@@ -43,7 +47,10 @@ void AGGJCharacter::BeginPlay()
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
-
+	else
+	{
+		UKismetSystemLibrary::PrintString(GetWorld(), "No Player Controller");
+	}
 
 	SpawnPlayerPatch();
 }
