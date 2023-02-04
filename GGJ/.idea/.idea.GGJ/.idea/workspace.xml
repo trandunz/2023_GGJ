@@ -8,10 +8,8 @@
     <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/WillTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/WillTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJGameMode.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/GGJ/GGJGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GGJGameMode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/PlayerStates/GGJPlayerState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/PlayerStates/GGJPlayerState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/VegetableBin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/VegetableBin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/VegetableBin.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/VegetableBin.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
