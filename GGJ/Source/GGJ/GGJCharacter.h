@@ -50,6 +50,9 @@ protected:
 	
 private:
 	void SpawnPlayerPatch();
+
+	void InitaliseWidgets();
+	
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class AGrowSpot* LastGrowSpot;
@@ -57,6 +60,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class AGrowPatch* PlayerPatch;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class UWidget_GameScreen* GameScreenWidget;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 PlayerIndex{};
 
