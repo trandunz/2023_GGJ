@@ -1,8 +1,10 @@
 #include "VegetableBin.h"
 
+#include "Carrot.h"
 #include "GGJGameMode.h"
 #include "Components/BoxComponent.h"
 #include "Interfaces/VegetableInterface.h"
+#include "Kismet/GameplayStatics.h"
 
 AVegetableBin::AVegetableBin()
 {
@@ -34,7 +36,7 @@ void AVegetableBin::OnBeginOverlap(UPrimitiveComponent* Comp, AActor* OtherActor
 {
 	if (OtherActor && OtherActor != this)
 	{
-		if (IVegetableInterface* vegetable = Cast<IVegetableInterface>(OtherActor))
+		if (ACarrot* carrot = Cast<ACarrot>(OtherActor))
 		{
 			if (AGGJGameMode * gameMode = (AGGJGameMode*)GetWorld()->GetAuthGameMode())
 			{
