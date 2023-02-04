@@ -9,7 +9,7 @@ void UWidget_GameScreen::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
 
-	Timer_RadialSlider->Value = MaxTime;
+	//Timer_RadialSlider->Value = MaxTime;
 }
 
 void UWidget_GameScreen::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
@@ -21,5 +21,5 @@ void UWidget_GameScreen::NativeTick(const FGeometry& MyGeometry, float InDeltaTi
 
 void UWidget_GameScreen::SetTimerValue(float _Fincrease)
 {
-	Timer_RadialSlider->Value += _Fincrease;
+	//Timer_RadialSlider->Value += _Fincrease;
 }
