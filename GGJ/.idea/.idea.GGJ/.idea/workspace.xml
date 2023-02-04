@@ -7,8 +7,15 @@
   <component name="ChangeListManager">
     <list default="true" id="3247d853-384d-4378-87a1-67f8a6e3fe2c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GGJCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_GGJCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Player1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Player1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Player2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Player2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/SM_rabi_Skeleton_AnimBlueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/SM_rabi_Skeleton_AnimBlueprint.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/WillTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/WillTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowPatch.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowPatch.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/Components/GrowComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/Components/GrowComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/Components/GrowComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/Components/GrowComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowSpot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowSpot.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GGJ/GrowSpot.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GGJ/GrowSpot.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +193,7 @@
       <workItem from="1675484669993" duration="113000" />
       <workItem from="1675485015729" duration="3144000" />
       <workItem from="1675497314663" duration="798000" />
-      <workItem from="1675548948759" duration="2375000" />
+      <workItem from="1675548948759" duration="4108000" />
     </task>
     <servers />
   </component>

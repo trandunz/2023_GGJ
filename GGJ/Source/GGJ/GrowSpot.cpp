@@ -53,6 +53,8 @@ void AGrowSpot::DebugSpriteColorChange()
 void AGrowSpot::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (SpawnTimer > 0)
+		SpawnTimer -= DeltaTime;;
 
 	if (GrowComponent && ActiveVegetable)
 	{
@@ -67,38 +69,39 @@ void AGrowSpot::Tick(float DeltaTime)
 				{
 					ActiveVegetable->Destroy();
 					ActiveVegetable = nullptr;
+					SpawnTimer = RespawnTime;
 					break;
 				}
 			case SEED:
 				{
-					currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Red);
+					//currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Red);
 					break;
 				}
 			case JUVENILE:
 				{
-					currentMat->SetVectorParameterValue(FName("Color"), FColor::Orange);
+					//currentMat->SetVectorParameterValue(FName("Color"), FColor::Orange);
 					break;
 				}
 			case MATURE:
 				{
-					currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Yellow);
+					//currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Yellow);
 					break;
 				}
 			case HARVESTABLE:
 				{
-					currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Green);
+					//currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Green);
 					break;
 				}
 			default:
-				currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Red);
+				//currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Red);
 				break;
 			}
 				
-			mesh->SetMaterial(0, currentMat);
+			//mesh->SetMaterial(0, currentMat);
 		}
 			
 	}
-	else if (CarrotPrefab && !ActiveVegetable)
+	else if (CarrotPrefab && !ActiveVegetable && SpawnTimer <= 0)
 	{
 		int randomSelection = rand() % 2;
 		if (randomSelection == 0)
