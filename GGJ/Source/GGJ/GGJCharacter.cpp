@@ -65,18 +65,23 @@ void AGGJCharacter::TryHarvest()
 	if (PlayerPatch && !CurrentVegetable)
 	{
 		CurrentVegetable = PlayerPatch->HarvestClosestGridPosition(GetActorLocation());
-		if (UGrowComponent* growComponent = Cast<UGrowComponent>(CurrentVegetable->GetComponentByClass(UGrowComponent::StaticClass())))
+		if (CurrentVegetable)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
-			growComponent->IsGrowing = false;
+			if (UGrowComponent* growComponent = Cast<UGrowComponent>(CurrentVegetable->GetComponentByClass(UGrowComponent::StaticClass())))
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
+				growComponent->IsGrowing = false;
+			}
+			CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("VegetableTarget"));
 		}
-		CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("VegetableTarget"));
 	}
 	else if (CurrentVegetable)
 	{
 		if (IVegetableInterface* vegetable = Cast<IVegetableInterface>(CurrentVegetable))
 		{
 			vegetable->Throw(GetActorForwardVector());
+			CurrentVegetable->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+			CurrentVegetable = nullptr;
 		}
 	}
 
