@@ -17,7 +17,7 @@ public:
 	FVector GetClosestGridPosition(FVector _inVec);
 
 	UFUNCTION()
-	void HarvestClosestGridPosition(FVector _inVec);
+	AActor* HarvestClosestGridPosition(FVector _inVec);
 
 	UFUNCTION()
 	bool IsGridPositionValid(FVector _inVec);

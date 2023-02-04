@@ -7,6 +7,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Components/GrowComponent.h"
 #include "GGJ/GrowSpot.h"
 #include "GGJ/GrowPatch.h"
 
@@ -49,11 +50,22 @@ void AGGJCharacter::BeginPlay()
 	SpawnPlayerPatch();
 }
 
+void AGGJCharacter::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+}
+
 void AGGJCharacter::TryHarvest()
 {
-	if (PlayerPatch)
+	if (PlayerPatch && !CurrentVegetable)
 	{
-		PlayerPatch->HarvestClosestGridPosition(GetActorLocation());
+		CurrentVegetable = PlayerPatch->HarvestClosestGridPosition(GetActorLocation());
+		if (UGrowComponent* growComponent = Cast<UGrowComponent>(CurrentVegetable->GetComponentByClass(UGrowComponent::StaticClass())))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
+			growComponent->IsGrowing = false;
+		}
+		CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("VegetableTarget"));
 	}
 }
 
