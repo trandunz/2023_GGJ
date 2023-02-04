@@ -36,7 +36,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere)
-	int GridSize = 10;
+	int GridSizeX = 10;
+	UPROPERTY(EditAnywhere)
+	int GridSizeY = 10;
 
 	UPROPERTY(EditAnywhere)
 	int WorldGridSize = 1000;

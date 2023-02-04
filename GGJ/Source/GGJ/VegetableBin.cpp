@@ -36,15 +36,8 @@ void AVegetableBin::OnBeginOverlap(UPrimitiveComponent* Comp, AActor* OtherActor
 {
 	if (OtherActor && OtherActor != this)
 	{
-		if (ACarrot* carrot = Cast<ACarrot>(OtherActor))
+		if (IVegetableInterface* vegetable = Cast<IVegetableInterface>(OtherActor))
 		{
-			if (AGGJGameMode * gameMode = (AGGJGameMode*)GetWorld()->GetAuthGameMode())
-			{
-				if (IsPlayerOne)
-					gameMode->P1CurrentCarrotCount++;
-				else
-					gameMode->P2CurrentCarrotCount++;
-			}
 			OtherActor->Destroy();
 		}
 	}

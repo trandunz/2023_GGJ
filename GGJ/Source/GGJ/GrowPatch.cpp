@@ -63,14 +63,14 @@ void AGrowPatch::PopulateGrid()
 	{
 		GridArray = {};
 	
-		float worldOffset = ((WorldGridSize * GridSize) * 0.5f) - (WorldGridSize* 0.5f);
-		for(int i = 0; i < GridSize; i++)
+		float worldOffset = ((WorldGridSize * (((GridSizeX + GridSizeY)/2) / 2)) * 0.5f) - (WorldGridSize* 0.5f);
+		for(int i = 0; i < GridSizeX; i++)
 		{
-			for(int y = 0; y < GridSize; y++)
+			for(int y = 0; y < GridSizeY; y++)
 			{
-				if (y <= (GridSize / 2) - 1 ||  y >= (GridSize / 2) + 1 )
+				if (y <= (((GridSizeX + GridSizeY)/2) / 2) - 1 ||  y >= (((GridSizeX + GridSizeY)/2) / 2) + 1 )
 				{
-					if (i <= (GridSize / 2) - 1 ||  i >= (GridSize / 2) + 1 )
+					if (i <= (((GridSizeX + GridSizeY)/2) / 2) - 1 ||  i >= (((GridSizeX + GridSizeY)/2) / 2) + 1 )
 					{
 						auto a = y * WorldGridSize;
 						auto b = i * WorldGridSize;
@@ -82,7 +82,7 @@ void AGrowPatch::PopulateGrid()
 						vec += GetActorLocation();
 
 						FActorSpawnParameters params{};
-						GridArray.Add(GetWorld()->SpawnActor<AGrowSpot>(GridCellPrefab, vec, FRotator(FQuat::Identity)));
+						GridArray[GridArray.Add(GetWorld()->SpawnActor<AGrowSpot>(GridCellPrefab, vec, FRotator(FQuat::Identity)))]->SetActorScale3D({0.5f,0.5f,0.5f});
 					}
 				}
 				
