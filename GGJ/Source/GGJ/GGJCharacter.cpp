@@ -70,12 +70,12 @@ void AGGJCharacter::TryHarvest()
 				UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
 				growComponent->IsGrowing = false;
 			}
-			CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("VegetableTarget"));
+			CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("VegetableTarget"));
 		}
 	}
 	else if (CurrentVegetable)
 	{
-		CurrentVegetable->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		CurrentVegetable->DetachFromActor(FDetachmentTransformRules::KeepRelativeTransform);
 		CurrentVegetable->SetActorLocation(GetActorLocation() + GetActorForwardVector());
 		if (IVegetableInterface* vegetableInterface = Cast<IVegetableInterface>(CurrentVegetable))
 		{

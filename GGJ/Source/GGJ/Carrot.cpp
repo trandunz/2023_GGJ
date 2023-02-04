@@ -6,6 +6,7 @@ ACarrot::ACarrot()
 	
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	RootComponent = Mesh;
+	Mesh->SetWorldScale3D({0.5f, 0.5f, 0.5f});
 }
 
 void ACarrot::BeginPlay()
@@ -30,6 +31,6 @@ void ACarrot::Throw(FVector _direction)
 	Mesh->SetSimulatePhysics(true);
 	Mesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	Mesh->SetCollisionProfileName("BlockAll");
-	Mesh->AddImpulse(_direction * 50000);
+	Mesh->AddImpulse(_direction * 25000);
 }
 
