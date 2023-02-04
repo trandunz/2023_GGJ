@@ -28,7 +28,7 @@ void AMandrake::Throw(FVector _direction)
 	Mesh->SetSimulatePhysics(true);
 	Mesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	Mesh->SetCollisionProfileName("BlockAll");
-	Mesh->AddImpulse(_direction * 25000);
+	Mesh->AddImpulse(_direction * 10000);
 }
 
 void AMandrake::Harvest()

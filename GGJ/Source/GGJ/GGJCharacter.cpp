@@ -94,10 +94,16 @@ void AGGJCharacter::TryHarvest()
 
 void AGGJCharacter::SpawnPlayerPatch()
 {
-	if (PlayerPatch == nullptr)
+	TArray<AActor*> ActorsToFind;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGrowPatch::StaticClass(), ActorsToFind);
+	if (ActorsToFind.Num() > 0)
+	{
+		PlayerPatch = Cast<AGrowPatch>(ActorsToFind[0]);
+	}
+	/*else if (PlayerPatch == nullptr)
 	{
 		PlayerPatch = GetWorld()->SpawnActor<AGrowPatch>(GrowPatchPrefab, {GetActorLocation().X, GetActorLocation().Y, 0}, FRotator(FQuat::Identity));		
-	}
+	}*/
 }
 
 void AGGJCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
