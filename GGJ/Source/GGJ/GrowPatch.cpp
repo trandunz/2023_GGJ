@@ -68,9 +68,9 @@ void AGrowPatch::PopulateGrid()
 		{
 			for(int y = 0; y < GridSizeY; y++)
 			{
-				if (y <= (((GridSizeX + GridSizeY)/2) / 2) - 1 ||  y >= (((GridSizeX + GridSizeY)/2) / 2) + 1 )
+				if (y <= (GridSizeY / 2) - 1 ||  y >= (GridSizeY / 2) + 1)
 				{
-					if (i <= (((GridSizeX + GridSizeY)/2) / 2) - 1 ||  i >= (((GridSizeX + GridSizeY)/2) / 2) + 1 )
+					if (i <= (GridSizeX / 2) - 1 ||  i >= (GridSizeX / 2) + 1 )
 					{
 						auto a = y * WorldGridSize;
 						auto b = i * WorldGridSize;
