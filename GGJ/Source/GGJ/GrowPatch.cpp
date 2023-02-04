@@ -27,27 +27,29 @@ FVector AGrowPatch::GetClosestGridPosition(FVector _inVec)
 	return {};
 }
 
-void AGrowPatch::HarvestClosestGridPosition(FVector _inVec)
+AActor* AGrowPatch::HarvestClosestGridPosition(FVector _inVec)
 {
 	if (GridArray.Num() > 0)
 	{
 		AGrowSpot* closestSpot = GridArray[0];
 		float closestDist = FVector::Distance(_inVec, GridArray[0]->GetActorLocation());
-
-		for(auto& cell : GridArray)
+		int closestIndex = 0;
+			
+		for(int i = 0; i < GridArray.Num(); i++)
 		{
-			if (FVector::Distance(_inVec, cell->GetActorLocation()) < closestDist)
+			if (FVector::Distance(_inVec, GridArray[i]->GetActorLocation()) < closestDist)
 			{
-				closestDist = FVector::Distance(_inVec, cell->GetActorLocation());
-				closestSpot = cell;
+				closestIndex = i;
+				closestDist = FVector::Distance(_inVec, GridArray[i]->GetActorLocation());
+				closestSpot = GridArray[i];
 			}
 		}
-
-		if (closestSpot->Harvest())
-		{
-			closestSpot->Harvest()->Destroy();
-		}
+		GridArray.RemoveAt(closestIndex);
+		GridArray.Shrink();
+		return closestSpot->Harvest();
 	}
+
+	return nullptr;
 }
 
 bool AGrowPatch::IsGridPositionValid(FVector _inVec)
