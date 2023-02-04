@@ -10,6 +10,7 @@
 #include "Components/GrowComponent.h"
 #include "GGJ/GrowSpot.h"
 #include "GGJ/GrowPatch.h"
+#include "Interfaces/VegetableInterface.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetSystemLibrary.h"
 
@@ -35,7 +36,6 @@ void AGGJCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
 	if (APlayerController* controller = UGameplayStatics::GetPlayerController(GetWorld(), this->PlayerIndex))//Cast<APlayerController>(Controller))
 	{
 
@@ -70,8 +70,16 @@ void AGGJCharacter::TryHarvest()
 			UE_LOG(LogTemp, Warning, TEXT("Stop Vegetable Growing!"));
 			growComponent->IsGrowing = false;
 		}
-		CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, FName("VegetableTarget"));
+		CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("VegetableTarget"));
 	}
+	else if (CurrentVegetable)
+	{
+		if (IVegetableInterface* vegetable = Cast<IVegetableInterface>(CurrentVegetable))
+		{
+			vegetable->Throw(GetActorForwardVector());
+		}
+	}
+
 }
 
 void AGGJCharacter::SpawnPlayerPatch()
