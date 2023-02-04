@@ -11,6 +11,7 @@
 #include "GGJ/GrowSpot.h"
 #include "GGJ/GrowPatch.h"
 
+
 AGGJCharacter::AGGJCharacter()
 {
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -44,7 +45,8 @@ void AGGJCharacter::BeginPlay()
 		}
 	}
 
-
+	InitaliseWidgets();
+	
 	SpawnPlayerPatch();
 }
 
@@ -72,6 +74,16 @@ void AGGJCharacter::SpawnPlayerPatch()
 	if (PlayerPatch == nullptr)
 	{
 		PlayerPatch = GetWorld()->SpawnActor<AGrowPatch>(GrowPatchPrefab, {GetActorLocation().X, GetActorLocation().Y, 0}, FRotator(FQuat::Identity));		
+	}
+}
+
+void AGGJCharacter::InitaliseWidgets()
+{
+	if(GameScreenWidget == nullptr && GameScreenPrefab)
+	{
+		
+		GameScreenWidget = CreateWidget<UWidget_GameScreen>(GetWorld(), GameScreenPrefab);
+		GameScreenWidget->AddToViewport();
 	}
 }
 
