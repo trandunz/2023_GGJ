@@ -73,6 +73,11 @@ void AGGJCharacter::TryHarvest()
 				growComponent->IsGrowing = false;
 			}
 			CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("VegetableTarget"));
+
+			if (IVegetableInterface* vegetable = Cast<IVegetableInterface>(CurrentVegetable))
+			{
+				vegetable->Harvest();
+			}
 		}
 	}
 	else if (CurrentVegetable)
