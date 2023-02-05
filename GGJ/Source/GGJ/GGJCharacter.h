@@ -7,6 +7,7 @@
 #include "GGJ/Widgets/Widget_GameScreen.h"
 #include "GGJCharacter.generated.h"
 
+class UWidget_PauseMenu;
 class AGrowPatch;
 UCLASS(config=Game)
 class AGGJCharacter : public ACharacter
@@ -25,13 +26,17 @@ private:
 	class UInputAction* LookAction;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* HarvestAction;
-
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* PauseAction;
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Prefabs, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<AGrowPatch> GrowPatchPrefab;
 
 	UPROPERTY(EditAnywhere, BlueprintreadOnly, Category = PlayerUI, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<UWidget_GameScreen> GameScreenPrefab;
+
+	UPROPERTY(EditAnywhere, BlueprintreadOnly, Category = PlayerUI, meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<UWidget_PauseMenu> PauseMenuPrefab;
 	
 public:
 	AGGJCharacter();
@@ -47,11 +52,11 @@ protected:
 	virtual void Tick(float DeltaSeconds) override;
 
 	virtual void TryHarvest();
+	UFUNCTION()
+	virtual void Pause();
 	
 private:
 	void SpawnPlayerPatch();
-
-	void InitaliseWidgets();
 	
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -62,6 +67,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class UWidget_GameScreen* GameScreenWidget;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class UWidget_PauseMenu* PauseMenuWidget;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 PlayerIndex{};

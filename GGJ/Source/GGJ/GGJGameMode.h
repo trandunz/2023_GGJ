@@ -18,6 +18,9 @@ public:
 
 	void SpawnPlayer2();
 
+	UFUNCTION()
+	void ResetGamemode();
+
 	FTransform FindRandomPlayerStart();
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Prefabs, meta = (AllowPrivateAccess = "true"))
