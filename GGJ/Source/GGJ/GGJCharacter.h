@@ -76,5 +76,11 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class AActor* CurrentVegetable;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	class UAnimMontage* ThrowAnim;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	class UAnimMontage* PickupAnim;
 };
 

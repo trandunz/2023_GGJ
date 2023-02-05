@@ -34,7 +34,7 @@ public:
 	float GrowTimer{};
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TEnumAsByte<GROWSTATE> GrowState{};
+	TEnumAsByte<GROWSTATE> GrowState{GROWSTATE::SEED};
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int DeadTime{5};
