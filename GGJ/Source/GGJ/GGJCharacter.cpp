@@ -16,6 +16,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/Button.h"
+#include "Animation/AnimMontage.h"
 #include "GGJ/Widgets/Widget_PauseMenu.h"
 
 AGGJCharacter::AGGJCharacter()
@@ -82,6 +83,10 @@ void AGGJCharacter::TryHarvest()
 			if (IVegetableInterface* vegetable = Cast<IVegetableInterface>(CurrentVegetable))
 			{
 				vegetable->Harvest();
+				if (PickupAnim)
+				{
+					GetMesh()->GetAnimInstance()->Montage_Play(PickupAnim, 3);
+				}
 			}
 		}
 	}
@@ -89,9 +94,15 @@ void AGGJCharacter::TryHarvest()
 	{
 		if (IVegetableInterface* vegetable = Cast<IVegetableInterface>(CurrentVegetable))
 		{
-			vegetable->Throw(GetActorForwardVector());
+			vegetable->Throw(GetActorForwardVector() + GetActorUpVector());
 			CurrentVegetable->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+			CurrentVegetable->SetLifeSpan(3.0f);
 			CurrentVegetable = nullptr;
+			
+			if (ThrowAnim)
+			{
+				GetMesh()->GetAnimInstance()->Montage_Play(ThrowAnim, 3);
+			}
 		}
 	}
 

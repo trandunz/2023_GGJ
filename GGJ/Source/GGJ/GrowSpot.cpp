@@ -1,5 +1,6 @@
 #include "GrowSpot.h"
 
+#include "Beet.h"
 #include "Carrot.h"
 #include "Mandrake.h"
 #include "GGJCharacter.h"
@@ -60,9 +61,6 @@ void AGrowSpot::Tick(float DeltaTime)
 	{
 		if (UStaticMeshComponent* mesh = Cast<UStaticMeshComponent>(ActiveVegetable->GetComponentByClass(UStaticMeshComponent::StaticClass())))
 		{
-			
-			auto currentMat = mesh->CreateDynamicMaterialInstance(0);
-
 			switch(GrowComponent->GrowState)
 			{
 			case DEAD:
@@ -74,21 +72,25 @@ void AGrowSpot::Tick(float DeltaTime)
 				}
 			case SEED:
 				{
+					ActiveVegetable->SetActorLocation(GetActorLocation() + FVector::DownVector * 25.0f);
 					//currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Red);
 					break;
 				}
 			case JUVENILE:
 				{
+					ActiveVegetable->SetActorLocation(GetActorLocation());
 					//currentMat->SetVectorParameterValue(FName("Color"), FColor::Orange);
 					break;
 				}
 			case MATURE:
 				{
+					ActiveVegetable->SetActorLocation(GetActorLocation() + FVector::UpVector * 25.0f);
 					//currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Yellow);
 					break;
 				}
 			case HARVESTABLE:
 				{
+					ActiveVegetable->SetActorLocation(GetActorLocation() + FVector::DownVector * 50.0f);
 					//currentMat->SetVectorParameterValue(FName("Color"), FLinearColor::Green);
 					break;
 				}
@@ -103,7 +105,7 @@ void AGrowSpot::Tick(float DeltaTime)
 	}
 	else if (CarrotPrefab && !ActiveVegetable && SpawnTimer <= 0)
 	{
-		int randomSelection = rand() % 2;
+		int randomSelection = rand() % 3;
 		if (randomSelection == 0)
 		{
 			ActiveVegetable = GetWorld()->SpawnActor<ACarrot>(CarrotPrefab, GetActorLocation(), FRotator(FQuat::Identity));
@@ -111,6 +113,10 @@ void AGrowSpot::Tick(float DeltaTime)
 		else if (randomSelection == 1)
 		{
 			ActiveVegetable = GetWorld()->SpawnActor<AMandrake>(MangrovePrefab, GetActorLocation(), FRotator(FQuat::Identity));
+		}
+		else if (randomSelection == 2)
+		{
+			ActiveVegetable = GetWorld()->SpawnActor<ABeet>(BeetPrefab, GetActorLocation(), FRotator(FQuat::Identity));
 		}
 	}
 }
