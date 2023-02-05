@@ -26,4 +26,6 @@ public:
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Mesh, meta = (AllowPrivateAccess))
 	class UStaticMeshComponent* Mesh;
+
+	
 };

@@ -20,7 +20,6 @@ void AMandrake::BeginPlay()
 void AMandrake::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AMandrake::Throw(FVector _direction)
@@ -36,7 +35,7 @@ void AMandrake::Harvest()
 	if (!IsHarvested && ScreamSound)
 	{
 		IsHarvested = true;
-		UGameplayStatics::PlaySoundAtLocation(GetWorld(), ScreamSound, GetActorLocation(), 1, 1, 0, {}, {});
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), ScreamSound, GetActorLocation(), 0.2f, 25.0f, 0, {}, {});
 	}
 }
 
