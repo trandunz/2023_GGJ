@@ -6,6 +6,7 @@ public class GGJ : ModuleRules
 {
 	public GGJ(ReadOnlyTargetRules Target) : base(Target)
 	{
+		PrivateDependencyModuleNames.AddRange(new string[] { "AdvancedWidgets" });
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
 		PublicDependencyModuleNames.AddRange(new string[]

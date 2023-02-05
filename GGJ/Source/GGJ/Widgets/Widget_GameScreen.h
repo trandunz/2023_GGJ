@@ -7,6 +7,7 @@
 #include "Widget_GameScreen.generated.h"
 
 
+class UTextBlock;
 UCLASS()
 class GGJ_API UWidget_GameScreen : public UUserWidget
 {
@@ -16,22 +17,31 @@ public:
 	// URadialSlider* Timer_RadialSlider;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Timer, meta = (BindWidget))
-	FText Timer_Text;
+	UTextBlock* Timer_Text;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Timer)
 	float MaxTime = 60.0f;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= TEXT, meta = (BindWidget))
-	FText LCarrotCount_Text;
+	UTextBlock* LCarrotCount_Text1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= TEXT, meta = (BindWidget))
-	FText RCarrotCount_Text;
+	UTextBlock* RCarrotCount_Text2;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= TEXT, meta = (BindWidget))
+	class URadialSlider* RadialSliderTimer;
 
 	
 	virtual void NativeOnInitialized() override;
 	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
 	
-	UFUNCTION(BlueprintCallable)
-	void SetTimerValue(float _Fincrease);
+	UFUNCTION()
+	void SetTimerValue();
+
+	UFUNCTION()
+	void SetPlayer1Carrots();
+
+	UFUNCTION()
+	void SetPlayer2Carrots();
 	
 };

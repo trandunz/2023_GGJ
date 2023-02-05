@@ -58,12 +58,42 @@ void AGGJCharacter::BeginPlay()
 		UKismetSystemLibrary::PrintString(GetWorld(), "No Player Controller");
 	}
 
+	if (GameScreenPrefab)
+	{
+		if (!GameScreenWidget)
+		{
+			if (AGGJPlayerController* controlller = Cast<AGGJPlayerController>(Controller))
+			{
+				GameScreenWidget = CreateWidget<UWidget_GameScreen>(controlller, GameScreenPrefab);
+				GameScreenWidget->AddToViewport();
+			}
+		}
+	}
+
 	SpawnPlayerPatch();
+}
+
+void AGGJCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	if (GameScreenWidget)
+	{
+		GameScreenWidget->RemoveFromParent();
+		GameScreenWidget = nullptr;
+	}
 }
 
 void AGGJCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+
+	if (GameScreenWidget)
+	{
+		GameScreenWidget->SetTimerValue();
+		GameScreenWidget->SetPlayer1Carrots();
+		GameScreenWidget->SetPlayer2Carrots();
+	}
 }
 
 void AGGJCharacter::TryHarvest()
