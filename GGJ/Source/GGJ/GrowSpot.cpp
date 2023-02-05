@@ -118,6 +118,7 @@ void AGrowSpot::Tick(float DeltaTime)
 		{
 			ActiveVegetable = GetWorld()->SpawnActor<ABeet>(BeetPrefab, GetActorLocation(), FRotator(FQuat::Identity));
 		}
+		ActiveVegetable->SetActorScale3D({1.2f, 1.2f, 1.2});
 	}
 }
 

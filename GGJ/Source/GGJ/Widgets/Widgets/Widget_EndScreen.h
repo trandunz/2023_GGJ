@@ -26,6 +26,6 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void GoHome();
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void Replay();
 };

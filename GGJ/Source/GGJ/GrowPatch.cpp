@@ -72,8 +72,8 @@ void AGrowPatch::PopulateGrid()
 				{
 					if (i <= (GridSizeX / 2) - 1 ||  i >= (GridSizeX / 2) + 1 )
 					{
-						auto a = y * WorldGridSize;
 						auto b = i * WorldGridSize;
+						auto a = y * WorldGridSize;
 
 						auto da = a - worldOffset;
 						auto db = b - worldOffset;
@@ -82,7 +82,7 @@ void AGrowPatch::PopulateGrid()
 						vec += GetActorLocation();
 
 						FActorSpawnParameters params{};
-						GridArray[GridArray.Add(GetWorld()->SpawnActor<AGrowSpot>(GridCellPrefab, vec, FRotator(FQuat::Identity)))]->SetActorScale3D({0.5f,0.5f,0.5f});
+						GridArray[GridArray.Add(GetWorld()->SpawnActor<AGrowSpot>(GridCellPrefab, vec, FRotator(FQuat::Identity)))]->SetActorScale3D({1.1f, 1.1f, 1.1f});
 					}
 				}
 				

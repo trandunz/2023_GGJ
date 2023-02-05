@@ -18,5 +18,5 @@ void UWidget_EndScreen::GoHome()
 
 void UWidget_EndScreen::Replay()
 {
-	
+	UGameplayStatics::OpenLevel(this, "Level_testGame", true);
 }

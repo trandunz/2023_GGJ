@@ -109,9 +109,12 @@ void AGGJCharacter::TryHarvest()
 				growComponent->IsGrowing = false;
 			}
 			CurrentVegetable->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("VegetableTarget"));
-
 			if (IVegetableInterface* vegetable = Cast<IVegetableInterface>(CurrentVegetable))
 			{
+				if (auto mesh = CurrentVegetable->FindComponentByClass<UStaticMeshComponent>())
+				{
+					mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+				}
 				vegetable->Harvest();
 				if (PickupAnim)
 				{
