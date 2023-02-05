@@ -26,73 +26,53 @@ void UGrowComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 		}
 		else
 		{
-			switch(GrowState)
+			if (AGrowSpot* growSpot = Cast<AGrowSpot>(GetOwner()))
 			{
-			case DEAD:
+				if (growSpot->ActiveVegetable)
 				{
-					GrowTimer = DeadTime;
-					GrowState = SEED;
-					break;
-				}
-			case SEED:
-				{
-					if (AGrowSpot* growSpot = Cast<AGrowSpot>(GetOwner()))
+					switch(GrowState)
 					{
-						if (growSpot->ActiveVegetable)
+					case DEAD:
+						{
+							GrowTimer = DeadTime;
+							GrowState = SEED;
+							break;
+						}
+					case SEED:
 						{
 							growSpot->ActiveVegetable->SetActorLocation(StartPos + FVector::DownVector * 25.0f);
-						}
-					}
 					
-					GrowTimer = SeedTime;
-					GrowState = JUVENILE;
-					break;
-				}
-			case JUVENILE:
-				{
-					if (AGrowSpot* growSpot = Cast<AGrowSpot>(GetOwner()))
-					{
-						if (growSpot->ActiveVegetable)
+							GrowTimer = SeedTime;
+							GrowState = JUVENILE;
+							break;
+						}
+					case JUVENILE:
 						{
 							growSpot->ActiveVegetable->SetActorLocation(StartPos);
+							GrowTimer = JuvenileTime;
+							GrowState = MATURE;
+							break;
 						}
-						
-					}
-					GrowTimer = JuvenileTime;
-					GrowState = MATURE;
-					break;
-				}
-			case MATURE:
-				{
-					if (AGrowSpot* growSpot = Cast<AGrowSpot>(GetOwner()))
-					{
-						
-						if (growSpot->ActiveVegetable)
+					case MATURE:
 						{
 							growSpot->ActiveVegetable->SetActorLocation(StartPos + FVector::UpVector * 25.0f);
+							GrowTimer = MatureTime;
+							GrowState = HARVESTABLE;
+							break;
 						}
-					}
-					GrowTimer = MatureTime;
-					GrowState = HARVESTABLE;
-					break;
-				}
-			case HARVESTABLE:
-				{
-					if (AGrowSpot* growSpot = Cast<AGrowSpot>(GetOwner()))
-					{
-						
-						if (growSpot->ActiveVegetable)
+					case HARVESTABLE:
 						{
 							growSpot->ActiveVegetable->SetActorLocation(StartPos + FVector::UpVector * 50.0f);
+							GrowTimer = HarvestableTime;
+							GrowState = DEAD;
+							break;
 						}
+					default:
+						break;
 					}
-					GrowTimer = HarvestableTime;
-					GrowState = DEAD;
-					break;
 				}
-			default:
-				break;
 			}
+			
 		}
 	}
 }

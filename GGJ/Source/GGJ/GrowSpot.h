@@ -4,6 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "GrowSpot.generated.h"
 
+class ABeet;
 class AMandrake;
 class ACarrot;
 UCLASS()
@@ -51,4 +52,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess))
 	TSubclassOf<AMandrake> MangrovePrefab;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess))
+	TSubclassOf<ABeet> BeetPrefab;
 };
