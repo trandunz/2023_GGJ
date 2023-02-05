@@ -8,11 +8,15 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "Components/GrowComponent.h"
+#include "Controllers/GGJPlayerController.h"
 #include "GGJ/GrowSpot.h"
 #include "GGJ/GrowPatch.h"
 #include "Interfaces/VegetableInterface.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Blueprint/UserWidget.h"
+#include "Components/Button.h"
+#include "GGJ/Widgets/Widget_PauseMenu.h"
 
 AGGJCharacter::AGGJCharacter()
 {
@@ -30,6 +34,7 @@ AGGJCharacter::AGGJCharacter()
 	GetCharacterMovement()->MaxWalkSpeed = 300.f;
 	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 4000.f;
+	
 }
 
 void AGGJCharacter::BeginPlay()
@@ -92,6 +97,30 @@ void AGGJCharacter::TryHarvest()
 
 }
 
+void AGGJCharacter::Pause()
+{
+	if (AGGJPlayerController* controlller = Cast<AGGJPlayerController>(Controller))
+	{
+		if (!PauseMenuWidget)
+		{
+			PauseMenuWidget = CreateWidget<UWidget_PauseMenu>(controlller, PauseMenuPrefab);
+			PauseMenuWidget->AddToViewport();
+			controlller->bShowMouseCursor = true;
+			controlller->SetInputMode(FInputModeGameAndUI{});
+			controlller->bEnableClickEvents = true;
+			PauseMenuWidget->Initialize();
+			PauseMenuWidget->Resume_Button->OnPressed.AddDynamic(this, &AGGJCharacter::Pause);
+		}
+		else
+		{
+			PauseMenuWidget->RemoveFromParent();
+			PauseMenuWidget = nullptr;
+			controlller->bShowMouseCursor = false;
+			controlller->SetInputMode(FInputModeGameOnly{});
+		}
+	}
+}
+
 void AGGJCharacter::SpawnPlayerPatch()
 {
 	TArray<AActor*> ActorsToFind;
@@ -115,6 +144,7 @@ void AGGJCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInput
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AGGJCharacter::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AGGJCharacter::Look);
 		EnhancedInputComponent->BindAction(HarvestAction, ETriggerEvent::Triggered, this, &AGGJCharacter::TryHarvest);
+		EnhancedInputComponent->BindAction(PauseAction, ETriggerEvent::Triggered, this, &AGGJCharacter::Pause);
 	}
 }
 
@@ -137,7 +167,6 @@ void AGGJCharacter::Move(const FInputActionValue& Value)
 void AGGJCharacter::Look(const FInputActionValue& Value)
 {
 }
-
 
 
 

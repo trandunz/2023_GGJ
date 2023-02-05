@@ -49,6 +49,13 @@ void AGGJGameMode::SpawnPlayer2()
 	}
 }
 
+void AGGJGameMode::ResetGamemode()
+{
+	Super::ResetLevel();
+
+	SpawnPlayer2();
+}
+
 FTransform AGGJGameMode::FindRandomPlayerStart()
 {
 	TArray<AActor*> spawnPoints{};

@@ -30,8 +30,11 @@ public:
 	void HideWidget(bool _hideState);
 	
 private:
+	UFUNCTION()
 	void ResumeGame();
+	UFUNCTION()
 	void ChangeScene();
+	UFUNCTION()
 	void QuitApplication();
 
 protected:
