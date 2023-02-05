@@ -20,11 +20,7 @@ void UWidget_PauseMenu::HideWidget(bool _hideState)
 
 void UWidget_PauseMenu::ResumeGame()
 {
-	//UnPause Game
-
-	//Hide PauseMenu
-
-	//Hide Cursor
+	RemoveFromParent();
 }
 
 void UWidget_PauseMenu::ChangeScene()
