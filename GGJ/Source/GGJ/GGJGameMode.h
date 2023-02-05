@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "GGJ/Widgets/Widgets/Widget_EndScreen.h"
 #include "GGJGameMode.generated.h"
 
 class AGGJCharacter;
@@ -26,10 +27,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Prefabs, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<AGGJCharacter> Player2Prefab;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Prefabs, meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<UWidget_EndScreen> EndScreenPrefab;
+
+	UWidget_EndScreen* EndScreen;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float RoundTimer{};
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	float RoundTime{};
+	float RoundTime{90};
 	bool GameOver{};
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)

@@ -1,6 +1,8 @@
 #include "GGJGameMode.h"
 #include "GGJCharacter.h"
 #include "Algo/RandomShuffle.h"
+#include "Controllers/GGJPlayerController.h"
+#include "GameFramework/GameSession.h"
 #include "GameFramework/PlayerStart.h"
 #include "Kismet/GameplayStatics.h"
 #include "UObject/ConstructorHelpers.h"
@@ -12,13 +14,17 @@ AGGJGameMode::AGGJGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
-	
+
+	PrimaryActorTick.bStartWithTickEnabled = true;
+	PrimaryActorTick.bCanEverTick = true;
 }
 
 void AGGJGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
+
+	
 	SpawnPlayer2();
 
 	RoundTimer = RoundTime;
@@ -36,6 +42,17 @@ void AGGJGameMode::Tick(float DeltaSeconds)
 	{
 		GameOver = true;
 		// Show Win Screen
+
+		if (!EndScreen && EndScreenPrefab)
+		{
+			if (AGGJPlayerController* controlller = Cast<AGGJPlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0)))
+			{
+				EndScreen = CreateWidget<UWidget_EndScreen>(controlller, EndScreenPrefab);
+				EndScreen->AddToViewport();
+				controlller->bShowMouseCursor = true;
+				controlller->SetInputMode(FInputModeUIOnly{});
+			}
+		}
 	}
 }
 
